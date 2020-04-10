@@ -1,13 +1,27 @@
 package messages;
 
-public class Message {
-    private MessageType messageType;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-    public MessageType getMessageType() {
-        return messageType;
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "MessageType")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = WaitMessage.class, name = "WAIT")
+})
+public abstract class Message {
+    protected String text;
+
+    public Message() {};
+
+    public Message(String text) { this.text = text; };
+
+
+    public String getText() {
+        return text;
     }
 
-    public void setMessageType(MessageType messageType) {
-        this.messageType = messageType;
+    public void setText(String text) {
+        this.text = text;
     }
 }
