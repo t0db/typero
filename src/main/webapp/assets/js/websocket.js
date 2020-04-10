@@ -2,7 +2,7 @@ var obj = {};
 
 obj.initializeConnection = function() {
 
-    const endpoint = "/test";
+    const endpoint = "/typero/websocketendpoint";
     if (window.location.protocol === "http:") {
         obj.socket = new WebSocket("ws://" + window.location.host + endpoint);
     } else {
@@ -29,5 +29,5 @@ obj.initializeConnection();
 
 document.querySelector("#btn").addEventListener("click", function() {
     var textInput = document.querySelector("#inputBox").value;
-    obj.socket.send(textInput);
+    obj.socket.send({"MessageType": "JOIN", "text": textInput});
 })
