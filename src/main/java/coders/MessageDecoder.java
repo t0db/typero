@@ -1,5 +1,7 @@
 package coders;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import messages.Message;
 
 import javax.websocket.DecodeException;
@@ -8,14 +10,26 @@ import javax.websocket.EndpointConfig;
 
 
 public class MessageDecoder implements Decoder.Text<Message> {
+    private ObjectMapper objectMapper;
+    
+    public MessageDecoder() {
+        objectMapper = new ObjectMapper();
+    }
+    
     @Override
     public Message decode(String s) throws DecodeException {
-        return null;
+        Message message = null;
+        try {
+            message = objectMapper.readValue(s, Message.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return message;
     }
 
     @Override
     public boolean willDecode(String s) {
-        return false;
+        return s != null && !s.isEmpty();
     }
 
     @Override
