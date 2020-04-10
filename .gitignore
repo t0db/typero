@@ -5,3 +5,9 @@ out/
 *.iml
 target/
 typero.log
+*.eml
+.classpath
+.project
+.settings/
+*.userlibraries
+
