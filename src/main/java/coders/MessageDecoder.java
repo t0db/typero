@@ -18,13 +18,13 @@ public class MessageDecoder implements Decoder.Text<Message> {
     
     @Override
     public Message decode(String s) throws DecodeException {
-        Message message = null;
         try {
-            message = objectMapper.readValue(s, Message.class);
+            return objectMapper.readValue(s, Message.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
+            throw new DecodeException(s, "Cannot decode to any message type.");
         }
-        return message;
+        
     }
 
     @Override
