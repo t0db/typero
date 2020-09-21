@@ -3,15 +3,14 @@ package util;
 import java.io.IOException;
 
 import javax.websocket.EncodeException;
-import javax.websocket.Session;
 
-import database.InMemoryDatabase;
 import messages.Message;
+import models.Player;
 
 public class ResponseGenerator {
-    public static void sendMessage(Session session, Message message) {
+    public static void sendMessage(Player player, Message message) {
         try {
-            session.getBasicRemote().sendObject(message);
+            player.getSession().getBasicRemote().sendObject(message);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (EncodeException e) {
@@ -19,8 +18,8 @@ public class ResponseGenerator {
         }
     }
     
-    public static void broadcast(Message message) {
-        for (Session player : InMemoryDatabase.players) {
+    public static void broadcast(Player[] players, Message message) {
+        for (Player player : players) {
             sendMessage(player, message);
         }
     }

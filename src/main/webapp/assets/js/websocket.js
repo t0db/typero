@@ -18,7 +18,6 @@ obj.initializeConnection = function() {
     };
 
     obj.socket.onmessage = function(event) {
-        console.log("Sending message.");
         console.log("WebSocket message received: ", event);
     };
 
@@ -29,5 +28,5 @@ obj.initializeConnection();
 
 document.querySelector("#btn").addEventListener("click", function() {
     var textInput = document.querySelector("#inputBox").value;
-    obj.socket.send({"MessageType": "JOIN", "text": textInput});
+    obj.socket.send(JSON.stringify({"MessageType": "JOIN", "text": textInput}));
 })

@@ -23,6 +23,6 @@ public class HandlerFactory {
     }
 
     private void initialize() {
-        handlers.put(JoinMessage.class.getSimpleName(), new JoinMessageHandler());
+        
     }
 }

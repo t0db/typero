@@ -13,8 +13,9 @@ import coders.MessageDecoder;
 import coders.MessageEncoder;
 import handlers.HandlerFactory;
 import handlers.MessageHandler;
-import messages.JoinMessage;
 import messages.Message;
+import models.Game;
+import models.Player;
 
 @ServerEndpoint(
         value = "/websocketendpoint", 
@@ -23,13 +24,16 @@ import messages.Message;
 )
 public class WebSocketEndpoint {
     private static final Logger LOGGER = LogManager.getLogger(WebSocketEndpoint.class);
+    
+    private Game game = new Game();
     private HandlerFactory handlerFactory = new HandlerFactory();
 
     @OnOpen
     public void onOpen(Session session) {
-        LOGGER.debug("Session successfully created.");
-        MessageHandler messageHandler = handlerFactory.getHandler(new JoinMessage());
-        messageHandler.handleMessage(session);
+        LOGGER.debug("Socket successfully connected.");
+        Player p = new Player(session);
+        game.addPlayer(p);
+        game.updateState();
     }
 
     @OnMessage
