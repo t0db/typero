@@ -2,7 +2,7 @@ package messages;
 
 
 public class WaitMessage extends Message {
-    public WaitMessage(String text) {
-        super(text);
+    public WaitMessage() {
+        super("Successfully joined and waiting for other player.");
     }
 }

@@ -1,7 +1,7 @@
 package messages;
 
 public class StartMessage extends Message {
-    public StartMessage(String text) {
-        super(text);
+    public StartMessage() {
+        super("Game is ready and about to start.");
     }
 }

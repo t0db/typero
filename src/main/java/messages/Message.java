@@ -7,7 +7,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         include = JsonTypeInfo.As.PROPERTY,
         property = "MessageType")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = WaitMessage.class, name = "WAIT")
+        @JsonSubTypes.Type(value = WaitMessage.class, name = "WAIT"),
+        @JsonSubTypes.Type(value = JoinMessage.class, name = "JOIN"),
+        @JsonSubTypes.Type(value = StartMessage.class, name = "START")
 })
 public abstract class Message {
     protected String text;
