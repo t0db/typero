@@ -14,8 +14,6 @@ import coders.MessageEncoder;
 import handlers.HandlerFactory;
 import handlers.MessageHandler;
 import messages.Message;
-import models.Game;
-import models.Player;
 
 @ServerEndpoint(
         value = "/websocketendpoint", 
@@ -25,20 +23,16 @@ import models.Player;
 public class WebSocketEndpoint {
     private static final Logger LOGGER = LogManager.getLogger(WebSocketEndpoint.class);
     
-    private Game game = new Game();
     private HandlerFactory handlerFactory = new HandlerFactory();
 
     @OnOpen
     public void onOpen(Session session) {
         LOGGER.debug("Socket successfully connected.");
-        Player p = new Player(session);
-        game.addPlayer(p);
-        game.updateState();
     }
 
     @OnMessage
     public void message(Session session, Message message) {
         MessageHandler messageHandler = handlerFactory.getHandler(message);
-        messageHandler.handleMessage(session);
+        messageHandler.handleMessage(session, message);
     }
 }

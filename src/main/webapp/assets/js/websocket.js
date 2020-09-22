@@ -28,5 +28,5 @@ obj.initializeConnection();
 
 document.querySelector("#btn").addEventListener("click", function() {
     var textInput = document.querySelector("#inputBox").value;
-    obj.socket.send(JSON.stringify({"MessageType": "JOIN", "text": textInput}));
+    obj.socket.send(JSON.stringify({"MessageType": "CREATE", "text": textInput}));
 })

@@ -2,6 +2,7 @@ package models;
 
 import javax.websocket.Session;
 
+
 public class Player {
     private Session session;
     private int idxOfCurrentWord;

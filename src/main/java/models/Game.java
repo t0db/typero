@@ -5,6 +5,7 @@ import state.GameState;
 import state.InPreparationGameState;
 
 public class Game {
+    private String uuid;
     private GameState gameState;
     private Player player1;
     private Player player2;
@@ -21,6 +22,14 @@ public class Game {
     
     public void changeState(GameState newGameState) {
         this.gameState = newGameState;
+    }
+    
+    public String getUUID() {
+        return uuid;
+    }
+    
+    public void setUUID(String uuid) {
+        this.uuid = uuid;
     }
     
     public Player getPlayer1() {

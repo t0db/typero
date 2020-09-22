@@ -3,9 +3,8 @@ package handlers;
 import java.util.HashMap;
 import java.util.Map;
 
-import messages.JoinMessage;
+import messages.CreateMessage;
 import messages.Message;
-
 
 public class HandlerFactory {
     private Map<String, MessageHandler> handlers;
@@ -23,6 +22,6 @@ public class HandlerFactory {
     }
 
     private void initialize() {
-        
+        handlers.put(CreateMessage.class.getSimpleName(), new CreateMessageHandler());
     }
 }

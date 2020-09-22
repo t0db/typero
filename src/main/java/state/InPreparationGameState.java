@@ -1,5 +1,6 @@
 package state;
 
+import messages.GameIdMessage;
 import messages.StartMessage;
 import messages.WaitMessage;
 import models.Game;
@@ -21,6 +22,7 @@ public class InPreparationGameState implements GameState {
             ResponseGenerator.broadcast(players, new StartMessage());
         } else {
             ResponseGenerator.sendMessage(game.getPlayer1(), new WaitMessage());
+            ResponseGenerator.sendMessage(game.getPlayer1(), new GameIdMessage(game.getUUID()));
         }
     }
 

@@ -1,5 +1,5 @@
 package messages;
 
 public enum MessageType {
-    JOIN, WAIT, START
+    JOIN, WAIT, START, CREATE, GAMEID
 }
