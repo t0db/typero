@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import messages.CreateMessage;
+import messages.JoinMessage;
 import messages.Message;
 
 public class HandlerFactory {
@@ -23,5 +24,6 @@ public class HandlerFactory {
 
     private void initialize() {
         handlers.put(CreateMessage.class.getSimpleName(), new CreateMessageHandler());
+        handlers.put(JoinMessage.class.getSimpleName(), new JoinMessageHandler());
     }
 }
