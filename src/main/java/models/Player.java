@@ -20,11 +20,11 @@ public class Player {
         this.session = seesion;
     }
     
-    public int getNumOfCorrectWords() {
+    public int getIdxOfCurrentWord() {
         return idxOfCurrentWord;
     }
     
-    public void setNumOfCorrectWords(int idxOfCurrentWord) {
-        this.idxOfCurrentWord = idxOfCurrentWord;
+    public void increaseIndex() {
+        this.idxOfCurrentWord += 1;
     }
 }

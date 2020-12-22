@@ -32,6 +32,16 @@ public class Game {
         this.uuid = uuid;
     }
     
+    public String[] getQuote() {
+        return quote;
+    }
+    
+    public Player getPlayer(String sessionId) {
+        if (player1.getSession().getId().equals(sessionId))
+            return player1;
+        return player2;
+    }
+    
     public Player getPlayer1() {
         return player1;
     }
