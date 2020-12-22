@@ -10,21 +10,23 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = WaitMessage.class, name = "WAIT"),
         @JsonSubTypes.Type(value = JoinMessage.class, name = "JOIN"),
         @JsonSubTypes.Type(value = StartMessage.class, name = "START"),
-        @JsonSubTypes.Type(value = CreateMessage.class, name = "CREATE")
+        @JsonSubTypes.Type(value = CreateMessage.class, name = "CREATE"),
+        @JsonSubTypes.Type(value = WordMessage.class, name = "WORD")
+        
 })
 public abstract class Message {
-    protected String text;
+    protected String payload;
 
     public Message() {};
 
-    public Message(String text) { this.text = text; };
+    public Message(String payload) { this.payload = payload; };
 
 
-    public String getText() {
-        return text;
+    public String getPayload() {
+        return payload;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setPayload(String payload) {
+        this.payload = payload;
     }
 }
