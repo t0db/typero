@@ -27,9 +27,13 @@ obj.initializeConnection = function() {
 obj.initializeConnection();
 
 document.querySelector("#create").addEventListener("click", function() {
-    obj.socket.send(JSON.stringify({"MessageType": "CREATE", "text": "Create game"}));
+    obj.socket.send(JSON.stringify({"MessageType": "CREATE", "payload": "Create game"}));
 })
 document.querySelector("#join").addEventListener("click", function() {
 	var textInput = document.querySelector("#inputBox").value;
-	obj.socket.send(JSON.stringify({"MessageType": "JOIN", "text": textInput}));
+	obj.socket.send(JSON.stringify({"MessageType": "JOIN", "payload": textInput}));
+})
+document.querySelector("#word").addEventListener("click", () => {
+    var textInput = document.querySelector("#wordBox").value;
+    obj.socket.send(JSON.stringify({"MessageType": "WORD", "payload": textInput}));
 })
