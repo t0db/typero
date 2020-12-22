@@ -24,7 +24,6 @@ public class MessageDecoder implements Decoder.Text<Message> {
             e.printStackTrace();
             throw new DecodeException(s, "Cannot decode to any message type.");
         }
-        
     }
 
     @Override
