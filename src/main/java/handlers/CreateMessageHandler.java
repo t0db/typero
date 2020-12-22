@@ -18,6 +18,7 @@ public class CreateMessageHandler implements MessageHandler {
         game.setUUID(uuid);
         game.addPlayer(new Player(session));
         InMemoryDatabase.games.put(uuid, game);
+        InMemoryDatabase.gameForSession.put(session.getId(), uuid);
         game.updateState();
     }
 

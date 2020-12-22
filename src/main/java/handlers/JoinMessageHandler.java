@@ -11,9 +11,11 @@ public class JoinMessageHandler implements MessageHandler {
 
     @Override
     public void handleMessage(Session session, Message message) {
-        String gameId = message.getText();
+        String gameId = message.getPayload();
+        System.out.println("GAME ID" + gameId);
         Game game = InMemoryDatabase.games.get(gameId);
         game.addPlayer(new Player(session));
+        InMemoryDatabase.gameForSession.put(session.getId(), gameId);
         game.updateState();
     }
 
