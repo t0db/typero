@@ -11,3 +11,25 @@ typero.log
 .settings/
 *.userlibraries
 
+# dependencies
+src/main/client/node_modules
+src/main/client/.pnp
+src/main/client/.pnp.js
+
+# testing
+src/main/client/coverage
+
+# production
+src/main/client/build
+
+# misc
+src/main/client/.DS_Store
+src/main/client/.env.local
+src/main/client/.env.development.local
+src/main/client/.env.test.local
+src/main/client/.env.production.local
+
+src/main/client/npm-debug.log*
+src/main/client/yarn-debug.log*
+src/main/client/yarn-error.log*
+
