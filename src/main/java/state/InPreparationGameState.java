@@ -1,8 +1,7 @@
 package state;
 
-import messages.GameIdMessage;
+import messages.CreatedMessage;
 import messages.StartMessage;
-import messages.WaitMessage;
 import models.Game;
 import models.Player;
 import util.ResponseGenerator;
@@ -21,8 +20,7 @@ public class InPreparationGameState implements GameState {
             Player[] players = new Player[] { game.getPlayer1(), game.getPlayer2() };
             ResponseGenerator.broadcast(players, new StartMessage());
         } else {
-            ResponseGenerator.sendMessage(game.getPlayer1(), new WaitMessage());
-            ResponseGenerator.sendMessage(game.getPlayer1(), new GameIdMessage(game.getUUID()));
+            ResponseGenerator.sendMessage(game.getPlayer1(), new CreatedMessage(game.getUUID()));
         }
     }
 

@@ -15,8 +15,10 @@ const websocketMiddleware = () => {
 
   const onMessage = store => event => {
     console.log("MESSAGE RECEIVED");
-    console.log("STORE", store);
-    console.log("EVENT", event);
+    console.log("DATA", event.data);
+    console.log(store);
+    const action = JSON.parse(event.data);
+    store.dispatch(action);
   };
 
   // eslint-disable-next-line no-unused-vars
@@ -28,9 +30,10 @@ const websocketMiddleware = () => {
         socket.onclose = onClose(store);
         socket.onmessage = onMessage(store);
         break;
-      default:
-        if (socket)
-          socket.send(JSON.stringify(action));
+      case "CREATE":
+      case "JOIN":
+      case "WORD":
+        socket.send(JSON.stringify(action));
     }
     next(action);
   };
