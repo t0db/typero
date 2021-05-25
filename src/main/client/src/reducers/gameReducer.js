@@ -10,7 +10,7 @@ const gameReducer = (state = {}, action) => {
     }
     case "CREATED": {
       console.log("ACTION", action);
-      return { ...state, gameId: action.payload };
+      return { ...state, gameId: action.data };
     }
     default:
       return state;

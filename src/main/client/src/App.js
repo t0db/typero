@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createGame } from "./reducers/gameReducer";
+import { useDispatch } from "react-redux";
+import { Switch, Route } from "react-router-dom";
+
+import GamePage from "./pages/GamePage";
+import NewGamePage from "./pages/NewGamePage";
+import LandingPage from "./pages/LandingPage";
+
 
 const initializeConnection = () => ({
   type: "INIT_CONNECTION"
@@ -9,13 +14,19 @@ const initializeConnection = () => ({
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => dispatch(initializeConnection()), []);
-  const gameId = useSelector(state => state.game.gameId);
 
   return (
-    <div>
-      <input type="button" onClick={() => dispatch(createGame())} value="create" />
-      <div>GAME ID: {gameId}</div>
-    </div>
+    <Switch>
+      <Route exact path="/">
+        <LandingPage />
+      </Route>
+      <Route path="/newgame">
+        <NewGamePage />
+      </Route>
+      <Route path="/game">
+        <GamePage />
+      </Route>
+    </Switch>
   );
 };
 

@@ -1,3 +1,5 @@
+import actionManager from "./actionManager";
+
 const websocketMiddleware = () => {
   let socket = null;
 
@@ -18,10 +20,9 @@ const websocketMiddleware = () => {
     console.log("DATA", event.data);
     console.log(store);
     const action = JSON.parse(event.data);
-    store.dispatch(action);
+    actionManager(store, action);
   };
 
-  // eslint-disable-next-line no-unused-vars
   return store => next => action => {
     switch (action.type) {
       case "INIT_CONNECTION":
