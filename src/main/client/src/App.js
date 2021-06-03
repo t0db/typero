@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 
 import GamePage from "./pages/GamePage";
 import NewGamePage from "./pages/NewGamePage";
-import LandingPage from "./pages/LandingPage";
+import HomePage from "./pages/HomePage";
 
 
 const initializeConnection = () => ({
@@ -18,7 +18,7 @@ const App = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <LandingPage />
+        <HomePage />
       </Route>
       <Route path="/newgame">
         <NewGamePage />
