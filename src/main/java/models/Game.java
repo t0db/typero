@@ -1,6 +1,8 @@
 package models;
 
 
+import java.util.StringJoiner;
+
 import state.GameState;
 import state.InPreparationGameState;
 
@@ -34,6 +36,14 @@ public class Game {
     
     public String[] getQuote() {
         return quote;
+    }
+    
+    public String getQuoteString() {
+    	StringJoiner joiner = new StringJoiner(" ");
+    	for (String word : quote) {
+			joiner.add(word);
+		}
+    	return joiner.toString();
     }
     
     public Player getPlayer(String sessionId) {

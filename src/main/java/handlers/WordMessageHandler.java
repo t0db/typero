@@ -18,7 +18,7 @@ public class WordMessageHandler implements MessageHandler {
         String word = message.getPayload();
         String[] quote = game.getQuote();
         if (quote[player.getIdxOfCurrentWord()].equals(word)) {
-            player.increaseIndex();
+            player.setNextWord();
             game.updateState();
         }
     }

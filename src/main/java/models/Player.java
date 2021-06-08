@@ -24,7 +24,7 @@ public class Player {
         return idxOfCurrentWord;
     }
     
-    public void increaseIndex() {
+    public void setNextWord() {
         this.idxOfCurrentWord += 1;
     }
 }
