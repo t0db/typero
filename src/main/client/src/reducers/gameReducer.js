@@ -2,9 +2,14 @@ export const createGame = () => ({
   type: "CREATE"
 });
 
-export const joinGame = (gameid) => ({
+export const joinGame = gameid => ({
   type: "JOIN",
   payload: gameid
+});
+
+export const sendWord = word => ({
+  type: "WORD",
+  payload: word
 });
 
 const gameReducer = (state = {}, action) => {
