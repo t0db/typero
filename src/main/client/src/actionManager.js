@@ -9,6 +9,11 @@ const actionManager = (store, action) => {
     case "START":
       store.dispatch({ type: "START", data: action.payload });
       store.dispatch(push("/game"));
+      break;
+    case "END":
+      store.dispatch({ type: "END", data: action.payload });
+      store.dispatch(push("/endgame"));
+      break;
   }
 };
 

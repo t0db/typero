@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
-import GamePage from "./pages/GamePage";
-import NewGamePage from "./pages/NewGamePage";
 import HomePage from "./pages/HomePage";
-
+import NewGamePage from "./pages/NewGamePage";
+import GamePage from "./pages/GamePage";
+import EndGamePage from "./pages/EndGamePage";
 
 const initializeConnection = () => ({
   type: "INIT_CONNECTION"
@@ -25,6 +25,9 @@ const App = () => {
       </Route>
       <Route path="/game">
         <GamePage />
+      </Route>
+      <Route path="/endgame">
+        <EndGamePage />
       </Route>
     </Switch>
   );
