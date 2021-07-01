@@ -12,7 +12,8 @@ public class Game {
     private Player player1;
     private Player player2;
     private String[] quote;
-            
+    private long startTime;
+    
     public Game() {
         quote = new String[] { "string", "to", "guess" };
         gameState = new InPreparationGameState(this);
@@ -66,6 +67,14 @@ public class Game {
         } else if (player2 == null) {
             player2 = player;
         }
+    }
+    
+    public long getStartTime() {
+    	return startTime;
+    }
+    
+    public void setStartTime(long startTime) {
+    	this.startTime = startTime;
     }
     
 }

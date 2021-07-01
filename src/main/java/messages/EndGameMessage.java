@@ -1,7 +1,7 @@
 package messages;
 
-public class GameOverMessage extends Message {
-    public GameOverMessage(String text) {
+public class EndGameMessage extends Message {
+    public EndGameMessage(String text) {
         super(text);
     }
 }

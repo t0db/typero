@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const EndGamePage = () => {
-  const notification = useSelector(state => state.notification);
+  const endGameMessage = useSelector(state => state.endGameMessage);
   return (
-    <div>{notification}</div>
+    <div>{endGameMessage}</div>
   );
 };
 

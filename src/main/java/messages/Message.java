@@ -9,9 +9,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({
     @JsonSubTypes.Type(value = CreateMessage.class, name = "CREATE"),
     @JsonSubTypes.Type(value = CreatedMessage.class, name = "CREATED"),
-        @JsonSubTypes.Type(value = JoinMessage.class, name = "JOIN"),
-        @JsonSubTypes.Type(value = StartMessage.class, name = "START"),
-        @JsonSubTypes.Type(value = WordMessage.class, name = "WORD")   
+    @JsonSubTypes.Type(value = JoinMessage.class, name = "JOIN"),
+    @JsonSubTypes.Type(value = StartMessage.class, name = "START"),
+    @JsonSubTypes.Type(value = WordMessage.class, name = "WORD"),
+    @JsonSubTypes.Type(value = EndGameMessage.class, name = "END"),
+    @JsonSubTypes.Type(value = StatsMessage.class, name = "STATS")
 })
 public abstract class Message {
     protected String payload;

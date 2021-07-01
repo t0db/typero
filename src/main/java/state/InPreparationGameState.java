@@ -18,6 +18,7 @@ public class InPreparationGameState implements GameState {
     public void handle() {
         if (game.getPlayer1() != null && game.getPlayer2() != null) {
             game.changeState(new InProgressGameState(game));
+            game.setStartTime(System.currentTimeMillis());
             Player[] players = new Player[] { game.getPlayer1(), game.getPlayer2() };
             ResponseGenerator.broadcast(players, new StartMessage(game.getQuoteString()));
         } else {
