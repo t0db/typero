@@ -2,9 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const EndGamePage = () => {
-  const endGameMessage = useSelector(state => state.endGameMessage);
+  const message = useSelector(state => state.game.message);
+  const stats = useSelector(state => state.game.stats);
   return (
-    <div>{endGameMessage}</div>
+    <div>
+      <p>{message}</p>
+      <p>Words per minute: {stats}</p>
+    </div>
   );
 };
 

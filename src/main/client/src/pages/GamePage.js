@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendWord } from "../reducers/gameReducer";
 
-const Game = () => {
+const GamePage = () => {
   const quote = useSelector(state => state.game.quote);
   const [word, setWord] = useState("");
   const dispatch = useDispatch();
@@ -24,4 +24,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default GamePage;

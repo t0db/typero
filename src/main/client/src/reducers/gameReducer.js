@@ -20,6 +20,8 @@ const gameReducer = (state = {}, action) => {
       return { ...state, quote: action.data };
     case "END":
       return { ...state, message: action.data };
+    case "STATS":
+      return { ...state, stats: action.data };
     default:
       return state;
   }

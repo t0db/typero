@@ -14,6 +14,9 @@ const actionManager = (store, action) => {
       store.dispatch({ type: "END", data: action.payload });
       store.dispatch(push("/endgame"));
       break;
+    case "STATS":
+      store.dispatch({ type: "STATS", data: action.payload });
+      break;
   }
 };
 
