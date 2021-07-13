@@ -22,7 +22,7 @@ public class InPreparationGameState implements GameState {
             Player[] players = new Player[] { game.getPlayer1(), game.getPlayer2() };
             ResponseGenerator.broadcast(players, new StartMessage(game.getQuoteString()));
         } else {
-            ResponseGenerator.sendMessage(game.getPlayer1(), new CreatedMessage(game.getUUID()));
+            ResponseGenerator.sendPlayerMessage(game.getPlayer1(), new CreatedMessage(game.getUUID()));
         }
     }
 

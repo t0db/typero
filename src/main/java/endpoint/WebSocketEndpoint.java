@@ -1,6 +1,9 @@
 package endpoint;
 
 
+import java.util.Set;
+
+import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
@@ -28,6 +31,11 @@ public class WebSocketEndpoint {
     @OnOpen
     public void onOpen(Session session) {
         LOGGER.debug("Socket successfully connected.");
+    }
+
+    @OnError
+    public void onError(Session session, Throwable t) {
+    	System.out.println("ERROR IS HERE");
     }
 
     @OnMessage
