@@ -8,8 +8,9 @@ const HomePage = () => {
   const [gameId, setGameId] = useState("");
 
   return (
-    <div>
+    <div className="container">
       <input
+        id="create-button"
         type="button"
         onClick={() => dispatch(createGame())}
         value="Create game"
@@ -21,6 +22,7 @@ const HomePage = () => {
         placeholder="Enter game id"
       />
       <input
+        id="join-button"
         type="button"
         onClick={() => dispatch(joinGame(gameId))}
         value="Join game"

@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import NewGamePage from "./pages/NewGamePage";
 import GamePage from "./pages/GamePage";
 import EndGamePage from "./pages/EndGamePage";
+import "./index.css";
 
 const initializeConnection = () => ({
   type: "INIT_CONNECTION"
