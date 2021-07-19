@@ -7,9 +7,9 @@ const NewGamePage = () => {
   const copyToClipboard = () => navigator.clipboard.writeText(gameId);
 
   return (
-    <div>
+    <div className="container">
       <label htmlFor="gameid">Share this code to a friend you want to play with</label>
-      <p>{gameId}</p>
+      <p id="game-id">code;{gameId}</p>
       <input type="button" onClick={copyToClipboard} value="Copy code!" />
     </div>
   );
