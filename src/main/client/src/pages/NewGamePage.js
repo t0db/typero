@@ -9,7 +9,7 @@ const NewGamePage = () => {
   return (
     <div className="container">
       <label htmlFor="gameid">Share this code to a friend you want to play with</label>
-      <p id="game-id">code;{gameId}</p>
+      <p id="game-id">{gameId}</p>
       <input type="button" onClick={copyToClipboard} value="Copy code!" />
     </div>
   );

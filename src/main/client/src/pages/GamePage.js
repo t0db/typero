@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendWord } from "../reducers/gameReducer";
@@ -29,9 +28,9 @@ WordWrap.propTypes = {
 
 const GamePage = () => {
   // converting string quote to word objects to track the changes
-  const quoteString = useSelector(state => state.game.quote);
+  const backupString = "Backup string to prevent crashing during testing.";
+  const quoteString = useSelector(state => state.game.quote) || backupString;
   const wordsArray = quoteString.split(" ");
-  // const quoteArrayTest = ["this", "is", "just", "a", "test", "string"];
   const wordObjects =
     wordsArray
       .map((elem, idx) => {
@@ -82,6 +81,7 @@ const GamePage = () => {
         type="text"
         onKeyDown={handleWord}
         onChange={e => setTypedWord(e.target.value)}
+        autoFocus={true}
       />
     </div>
   );

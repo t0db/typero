@@ -5,9 +5,12 @@ const EndGamePage = () => {
   const message = useSelector(state => state.game.message);
   const stats = useSelector(state => state.game.stats);
   return (
-    <div>
-      <p>{message}</p>
-      <p>Words per minute: {stats}</p>
+    <div className="container stats-container">
+      <div className="stats-wrapper">
+        <p>{message}</p>
+        <p>Words per minute: {stats}</p>
+      </div>
+
     </div>
   );
 };
