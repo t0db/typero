@@ -52,3 +52,12 @@
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+.game-container {
+  width: 80%;
+  align-items: baseline;
+}
+
+.game-container span {
+  margin-right: 0.5rem;
+}
