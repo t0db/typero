@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendWord } from "../reducers/gameReducer";
 import PropTypes from "prop-types";
@@ -26,6 +26,19 @@ WordWrap.propTypes = {
   word: PropTypes.object.isRequired
 };
 
+const ModalCounter = ({ counter }) => {
+  return (
+    <div className="modal-container">
+      <div className="modal-content">
+        Get ready: {counter}
+      </div>
+    </div>
+  );
+};
+ModalCounter.propTypes = {
+  counter: PropTypes.number.isRequired
+};
+
 const GamePage = () => {
   // converting string quote to word objects to track the changes
   const backupString = "Backup string to prevent crashing during testing.";
@@ -45,6 +58,26 @@ const GamePage = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const dispatch = useDispatch();
 
+  const [showModal, setShowModal] = useState(true);
+  const [counter, setCounter] = useState(10);
+  const updateCounter = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+    else {
+      setShowModal(false);
+    }
+  };
+  useEffect(
+    () => {
+      const id = setTimeout(() => {
+        updateCounter();
+      }, 1000);
+      return () => clearTimeout(id);
+    },
+    [counter]
+  );
+
   const handleWord = e => {
     if (e.code === "Space") {
       checkWord();
@@ -60,7 +93,7 @@ const GamePage = () => {
       wordsCopy[currentWordIndex].isTyped = true;
       wordsCopy[currentWordIndex].isActive = false;
       if (words.length <= currentWordIndex) {
-        wordsCopy[currentWordIndex+1].isActive = true;
+        wordsCopy[currentWordIndex + 1].isActive = true;
       }
       setCurrentWordIndex(currentWordIndex + 1);
       setWords(wordsCopy);
@@ -69,6 +102,7 @@ const GamePage = () => {
 
   return (
     <div className="container game-container">
+      {showModal && <ModalCounter counter={counter} />}
       <p>
         {
           words

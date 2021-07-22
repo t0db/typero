@@ -71,3 +71,24 @@
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
+
+.modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #999;
+  width: 50%;
+  height: 50%;
+  border: 1px solid #000;
+}
