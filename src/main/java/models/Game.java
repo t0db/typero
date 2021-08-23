@@ -13,6 +13,7 @@ public class Game {
     private Player player2;
     private String[] quote;
     private long startTime;
+    private long endTime;
     
     public Game() {
         quote = new String[] { "string", "to", "guess" };
@@ -75,6 +76,25 @@ public class Game {
     
     public void setStartTime(long startTime) {
     	this.startTime = startTime;
+    }
+    
+    public long getEndTime() {
+    	return endTime;
+    }
+    
+    public void setEndTime(long endTime) {
+    	this.endTime = endTime;
+    }
+    
+    // calculates words per minute for specified player
+    public int calculateStats(Player player) {
+		// -5 is for the delay at the beginning of the game
+		long gameDurationInSeconds = (endTime - startTime) / 1000 - 5;
+		// number of correctly typed words
+		long words = player.getIdxOfCurrentWord();
+		
+		double wordsPerMinute = ((double) words / gameDurationInSeconds) * 60;
+    	return (int) Math.floor(wordsPerMinute);
     }
     
 }

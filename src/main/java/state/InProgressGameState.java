@@ -3,7 +3,6 @@ package state;
 import messages.EndGameMessage;
 import messages.StatsMessage;
 import models.Game;
-import models.Player;
 import util.ResponseGenerator;
 
 public class InProgressGameState implements GameState {
@@ -16,29 +15,26 @@ public class InProgressGameState implements GameState {
     
     @Override
     public void handle() {
-        Player player1 = game.getPlayer1();
-        Player player2 = game.getPlayer2();
-        
-        if (player1.getIdxOfCurrentWord() == game.getQuote().length) {
-            ResponseGenerator.sendPlayerMessage(player1, new EndGameMessage("You have won the game."));
-            ResponseGenerator.sendPlayerMessage(player2, new EndGameMessage("You have lost the game."));
-            processEndGame(player1);
-            	
+        if (game.getPlayer1().getIdxOfCurrentWord() == game.getQuote().length) {
+            ResponseGenerator.sendPlayerMessage(game.getPlayer1(), new EndGameMessage("You have won the game."));
+            ResponseGenerator.sendPlayerMessage(game.getPlayer2(), new EndGameMessage("You have lost the game."));
+            processEndGame();
         }
-        if (player2.getIdxOfCurrentWord() == game.getQuote().length) {
-        	ResponseGenerator.sendPlayerMessage(player2, new EndGameMessage("You have won the game."));
-            ResponseGenerator.sendPlayerMessage(player1, new EndGameMessage("You have lost the game."));
-            processEndGame(player2);
+        else if (game.getPlayer2().getIdxOfCurrentWord() == game.getQuote().length) {
+        	ResponseGenerator.sendPlayerMessage(game.getPlayer1(), new EndGameMessage("You have lost the game."));
+        	ResponseGenerator.sendPlayerMessage(game.getPlayer2(), new EndGameMessage("You have won the game."));
+            processEndGame();
         }
     }
     
-    // word per minute calculation
-	private void processEndGame(Player player) {
-		long endGameTime = System.currentTimeMillis();
-		long gameDurationInSeconds = (endGameTime - game.getStartTime()) / 1000;
-		long numberOfWordsInQoute = game.getQuote().length;
-		double wordsPerMinute = ((double)numberOfWordsInQoute / gameDurationInSeconds) * 60;
-		ResponseGenerator.sendPlayerMessage(player, new StatsMessage("SPEED: " + (int)Math.floor(wordsPerMinute) + " WPM."));
+	private void processEndGame() {
+		game.setEndTime(System.currentTimeMillis());
+		
+		int p1Stats = game.calculateStats(game.getPlayer1());
+        ResponseGenerator.sendPlayerMessage(game.getPlayer1(), new StatsMessage(String.valueOf(p1Stats)));
+        
+        int p2Stats = game.calculateStats(game.getPlayer2());
+        ResponseGenerator.sendPlayerMessage(game.getPlayer2(), new StatsMessage(String.valueOf(p2Stats)));
 	}
 
 }

@@ -1,8 +1,6 @@
 package endpoint;
 
 
-import java.util.Set;
-
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -35,7 +33,7 @@ public class WebSocketEndpoint {
 
     @OnError
     public void onError(Session session, Throwable t) {
-    	System.out.println("ERROR IS HERE");
+    	t.printStackTrace();
     }
 
     @OnMessage

@@ -59,7 +59,7 @@ const GamePage = () => {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(true);
-  const [counter, setCounter] = useState(10);
+  const [counter, setCounter] = useState(5);
   const updateCounter = () => {
     if (counter > 0) {
       setCounter(counter - 1);
