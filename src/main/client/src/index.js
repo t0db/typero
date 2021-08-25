@@ -9,7 +9,7 @@ import App from "./App";
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={myHistory}>
+    <Router basename="/typero" history={myHistory}>
       <App />
     </Router>
   </Provider>,

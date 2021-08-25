@@ -21,9 +21,11 @@ src/main/client/coverage
 
 # production
 src/main/client/build
+src/main/webapp/
 
 # misc
 src/main/client/.DS_Store
+src/main/client/.env
 src/main/client/.env.local
 src/main/client/.env.development.local
 src/main/client/.env.test.local
