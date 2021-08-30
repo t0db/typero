@@ -1,10 +1,11 @@
 package memory;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class InMemoryQuotes {
-	private static List<String> quotes = List.of(
+	private static List<String> quotes = Arrays.asList(
 				"Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.",
 				"In three words I can sum up everything I've learned about life: it goes on.",
 				"I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
