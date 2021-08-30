@@ -92,3 +92,9 @@
   height: 50%;
   border: 1px solid #000;
 }
+
+.quote-container {
+  word-wrap: break-word;
+  display: inline-block;
+  width: 100%;
+}

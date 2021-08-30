@@ -3,6 +3,7 @@ package models;
 
 import java.util.StringJoiner;
 
+import memory.InMemoryQuotes;
 import state.GameState;
 import state.InPreparationGameState;
 
@@ -16,7 +17,7 @@ public class Game {
     private long endTime;
     
     public Game() {
-        quote = new String[] { "string", "to", "guess" };
+        quote = InMemoryQuotes.getQuote();
         gameState = new InPreparationGameState(this);
     }
     

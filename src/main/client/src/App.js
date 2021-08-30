@@ -18,16 +18,16 @@ const App = () => {
 
   return (
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/typero/">
         <HomePage />
       </Route>
-      <Route path="/newgame">
+      <Route path="/typero/newgame">
         <NewGamePage />
       </Route>
-      <Route path="/game">
+      <Route path="/typero/game">
         <GamePage />
       </Route>
-      <Route path="/endgame">
+      <Route path="/typero/endgame">
         <EndGamePage />
       </Route>
     </Switch>

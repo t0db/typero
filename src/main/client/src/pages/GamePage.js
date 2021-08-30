@@ -103,14 +103,14 @@ const GamePage = () => {
   return (
     <div className="container game-container">
       {showModal && <ModalCounter counter={counter} />}
-      <p>
+      <div className="quote-container">
         {
           words
             .map((elem, idx) =>
               <WordWrap key={idx} word={elem} />
             )
         }
-      </p>
+      </div>
       <input
         type="text"
         onKeyDown={handleWord}
