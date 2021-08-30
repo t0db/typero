@@ -8,7 +8,7 @@ const EndGamePage = () => {
   const stats = useSelector(state => state.game.stats);
 
   const store = useStore();
-  const goHome = () => store.dispatch(push("/typero"));
+  const goHome = () => store.dispatch(push("/"));
 
   return (
     <div className="container stats-container">
