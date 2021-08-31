@@ -18,7 +18,7 @@ const websocketMiddleware = () => {
   return store => next => action => {
     switch (action.type) {
       case "INIT_CONNECTION":
-        socket = new WebSocket(`ws://${window.location.host}/websocketendpoint`);
+        socket = new WebSocket(`wss://${window.location.host}/websocketendpoint`);
         socket.onopen = onOpen(store);
         socket.onclose = onClose(store);
         socket.onmessage = onMessage(store);
